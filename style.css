@@ -12,15 +12,27 @@ h1, h2 {
   font-family: 'Lora', serif;
 }
 
+/* SUBSTITUA o seu CSS 'header.hero' por este */
 header.hero {
-  position: relative;
-  background: url('imagens/lugar.jpg') center/cover no-repeat;
+  position: relative; /* Essencial para que a imagem se posicione corretamente dentro dele */
   height: 100vh;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden; /* Garante que a imagem não "vaze" para fora do header */
+}
+
+/* ADICIONE este novo código para a imagem */
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Funciona como o 'background-size: cover', preenchendo o espaço sem distorcer */
+  z-index: -1;       /* A mágica acontece aqui: envia a imagem para trás de todo o conteúdo */
 }
 
 .hero .overlay {
@@ -264,3 +276,4 @@ footer a:hover {
       border-bottom: 0;
   }
 }
+
